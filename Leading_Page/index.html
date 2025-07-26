@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criatório Di Polli - Galinhas de Raça</title>
+  <meta name="description" content="Landing page para um criatório de galinhas de raça premium, apresentando suas raças, qualidade e informações de contato. Criatório Di Polli, excelência em aves de raça.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body::-webkit-scrollbar {
+      width: 8px;
+    }
+    body::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    body::-webkit-scrollbar-thumb {
+      background: #854d0e; /* amber-700 */
+      border-radius: 4px;
+    }
+    body::-webkit-scrollbar-thumb:hover {
+      background: #713f12; /* amber-800 */
+    }
+    .hero-bg {
+      background-image: url('images/banner.jpg');
+    }
+    .header-scrolled {
+      background-color: white !important;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      padding-top: 1rem !important; /* py-4 */
+      padding-bottom: 1rem !important; /* py-4 */
+    }
+    .header-scrolled .nav-link, .header-scrolled .brand-name, .header-scrolled .mobile-menu-button {
+        color: #38a169 !important; /* green-700 for brand, stone-700 for links, etc. Simplified to green-700 for visibility */
+    }
+    .header-scrolled .nav-link:hover {
+        color: #d97706 !important; /* amber-600 */
+    }
+
+    #mobile-menu {
+      transition: transform 0.3s ease-in-out;
+    }
+    #mobile-menu.hidden {
+      transform: translateX(100%);
+    }
+    #mobile-menu.block {
+        transform: translateX(0);
+    }
+
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-amber-50 text-stone-800 antialiased">
+
+  <!-- Header -->
+  <header id="page-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-transparent py-6">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl flex justify-between items-center">
+      <a href="#inicio" class="flex items-center space-x-3 brand-name">
+        <img src="images/logo.png" alt="Logo Criatório Di Polli" class="h-20 w-auto" />
+        <span class="text-2xl font-bold tracking-tight text-white">Criatório Di Polli</span>
+      </a>
+      <nav class="hidden md:flex space-x-6" id="desktop-nav">
+        <!-- Nav links will be injected here by JS -->
+      </nav>
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="focus:outline-none text-white mobile-menu-button" aria-label="Abrir menu">
+          <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 block">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 hidden">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden bg-white shadow-lg absolute top-full left-0 right-0 hidden">
+      <nav class="flex flex-col items-center py-4 space-y-4" id="mobile-nav-links">
+        <!-- Mobile nav links will be injected here by JS -->
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section id="inicio" class="relative h-screen flex items-center justify-center bg-cover bg-center hero-bg" aria-labelledby="hero-heading">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+      <div class="relative z-10 text-center text-white p-4">
+        <h1 id="hero-heading" class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
+          Bem-vindo ao <span class="text-amber-400">Criatório Di Polli</span>
+        </h1>
+        <p class="text-lg sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto drop-shadow-md">
+          Excelência e paixão na criação de galinhas de raça pura.
+        </p>
+        <a href="#racas" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
+          Conheça Nossas Raças
+        </a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-12 md:py-20 bg-white" aria-labelledby="about-title">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="text-center mb-10 md:mb-16">
+          <h2 id="about-title" class="text-3xl md:text-4xl font-bold text-green-800 mb-3 tracking-tight">Sobre Nós</h2>
+          <p class="text-lg text-stone-600 max-w-2xl mx-auto">Paixão e Dedicação em Cada Ave</p>
+          <div class="mt-4 w-24 h-1 bg-amber-500 mx-auto rounded"></div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div>
+            <img src="images/fantasma.png" alt="Sede do Criatório Di Polli" class="rounded-lg shadow-xl w-full h-auto object-cover" />
+          </div>
+          <div class="text-stone-700 space-y-4 text-lg">
+            <p>No <strong>Criatório Di Polli</strong>, nossa paixão pela avicultura se traduz na criação de galinhas de raça pura com os mais altos padrões de qualidade e bem-estar animal. Fundado com o objetivo de preservar e aprimorar raças selecionadas, dedicamo-nos a oferecer aves saudáveis, robustas e com excelente genética.</p>
+            <p>Acreditamos que um manejo cuidadoso, alimentação balanceada e um ambiente limpo e espaçoso são fundamentais para o desenvolvimento pleno de nossas aves. Cada galinha em nosso criatório é tratada com carinho e respeito, refletindo nosso compromisso com a excelência.</p>
+            <p>Convidamos você a conhecer nosso trabalho e descobrir a beleza e a singularidade das galinhas de raça que criamos com tanto esmero.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Breeds Section -->
+    <section id="racas" class="py-12 md:py-20 bg-amber-100" aria-labelledby="breeds-title">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="text-center mb-10 md:mb-16">
+          <h2 id="breeds-title" class="text-3xl md:text-4xl font-bold text-green-800 mb-3 tracking-tight">Nossas Raças Exclusivas</h2>
+          <p class="text-lg text-stone-600 max-w-2xl mx-auto">Descubra a diversidade e a beleza das aves que criamos com dedicação.</p>
+          <div class="mt-4 w-24 h-1 bg-amber-500 mx-auto rounded"></div>
+        </div>
+        <div id="breeds-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Breed cards will be injected here by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="py-12 md:py-20 bg-white" aria-labelledby="gallery-title">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="text-center mb-10 md:mb-16">
+          <h2 id="gallery-title" class="text-3xl md:text-4xl font-bold text-green-800 mb-3 tracking-tight">Nossa Galeria</h2>
+          <p class="text-lg text-stone-600 max-w-2xl mx-auto">Um vislumbre do nosso criatório e da beleza de nossas aves.</p>
+          <div class="mt-4 w-24 h-1 bg-amber-500 mx-auto rounded"></div>
+        </div>
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Gallery images will be injected here by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-12 md:py-20 bg-green-50" aria-labelledby="contact-title">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="text-center mb-10 md:mb-16">
+          <h2 id="contact-title" class="text-3xl md:text-4xl font-bold text-green-800 mb-3 tracking-tight">Entre em Contato</h2>
+          <p class="text-lg text-stone-600 max-w-2xl mx-auto">Estamos ansiosos para ouvir de você! Tire suas dúvidas ou faça seu pedido.</p>
+          <div class="mt-4 w-24 h-1 bg-amber-500 mx-auto rounded"></div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-start">
+          <div class="bg-white p-8 rounded-lg shadow-xl space-y-6">
+            <h3 class="text-2xl font-semibold text-green-700 mb-4">Informações de Contato</h3>
+            <div id="contact-info" class="space-y-4 text-stone-700">
+              <!-- Contact info will be injected here by JS -->
+            </div>
+            <p class="text-sm text-stone-500 mt-6">Por favor, agende sua visita com antecedência.</p>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-xl">
+            <h3 class="text-2xl font-semibold text-green-700 mb-6">Envie uma Mensagem</h3>
+            <form id="contact-form" class="space-y-6">
+              <div>
+                <label for="name" class="block text-sm font-medium text-stone-700">Nome Completo</label>
+                <input type="text" name="name" id="name" autocomplete="name" required class="mt-1 block w-full px-3 py-2 border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm" />
+              </div>
+              <div>
+                <label for="email_form" class="block text-sm font-medium text-stone-700">Email</label>
+                <input type="email" name="email_form" id="email_form" autocomplete="email" required class="mt-1 block w-full px-3 py-2 border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm" />
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-medium text-stone-700">Mensagem</label>
+                <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-3 py-2 border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm"></textarea>
+              </div>
+              <div>
+                <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 transition duration-150">
+                  Enviar Mensagem
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-stone-800 text-amber-50 py-10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl text-center">
+      <div class="mb-6">
+        <div class="flex items-center justify-center space-x-3 mb-4">
+          <img src="images/logo.png" alt="Logo Criatório Di Polli" class="h-20 w-auto" />
+          <h3 class="text-2xl font-semibold text-amber-400">Criatório Di Polli</h3>
+        </div>
+        <p class="text-stone-300">Preservando a beleza e a qualidade das aves de raça.</p>
+      </div>
+      <div id="social-links-footer" class="flex justify-center space-x-6 mb-6">
+        <!-- Social links will be injected here by JS -->
+      </div>
+      <p class="text-sm text-stone-400">
+        &copy; <span id="current-year"></span> Criatório Di Polli. Todos os direitos reservados.
+      </p>
+      <p class="text-xs text-stone-500 mt-2">
+        Criado com <i class="fas fa-heart text-red-500"></i> para amantes de aves.
+      </p>
+    </div>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // --- Constants ---
+  const HATCHERY_NAME = "Criatório Di Polli";
+  const NAV_LINKS = [
+    { href: '#inicio', label: 'Início' },
+    { href: '#sobre', label: 'Sobre Nós' },
+    { href: '#racas', label: 'Nossas Raças' },
+    { href: '#galeria', label: 'Galeria' },
+    { href: '#contato', label: 'Contato' },
+  ];
+  const BREEDS_DATA = [
+    { id: 'ameraucana', name: 'Ameraucana', description: 'Galinhas conhecidas por botarem ovos azuis e por suas bochechas fofas. São aves dóceis e excelentes poedeiras.', imageUrl: 'images/ameraucanas.png', origin: 'América', temperament: 'Dócil, Ativa', eggColor: 'Azul', avgEggsPerYear: 220, eggPricePerDozen: 400 },
+    { id: 'marans', name: 'Marans', description: 'Conhecidas por botarem ovos de casca escura, quase chocolate. Aves robustas, de dupla aptidão, com boa produção de carne e ovos.', imageUrl: 'https://picsum.photos/seed/marans_chicken/600/450', origin: 'França', temperament: 'Calmo, Resistente', eggColor: 'Chocolate escuro', avgEggsPerYear: 150, eggPricePerDozen: 600 },
+    { id: 'gsb', name: 'Galinha Sertaneja Balão (GSB)', description: 'Raça rústica brasileira, adaptada ao clima tropical. Conhecida por sua resistência e boa produção de ovos. Excelente forrageira e mãe atenta.', imageUrl: 'images/balao.jpg', origin: 'Brasil', temperament: 'Ativa, Rústica', eggColor: 'Castanho claro', avgEggsPerYear: 180, eggPricePerDozen: 400 },
+    { id: 'polacobalao', name: 'Polaco Balão', description: 'Variação da GSB (Galinha Sertaneja Balão), é uma raça brasileira rústica e adaptada ao nosso clima. Conhecida por sua beleza e resistência, é excelente para criação em sítios e chácaras.', imageUrl: 'https://picsum.photos/seed/brazilian_balloon_chicken/600/450', origin: 'Brasil', temperament: 'Ativo, Rústico', eggColor: 'Castanho claro', avgEggsPerYear: 150, eggPricePerDozen: 400 },
+    { id: 'silkie', name: 'Sedosa do Japão (Silkie)', description: 'Raça única com plumagem macia como seda, pele escura e cinco dedos. Temperamento dócil, ideal para crianças.', imageUrl: 'https://picsum.photos/seed/silkie_white_chicken/600/450', origin: 'China', temperament: 'Dócil, Maternal', eggColor: 'Creme ou bege', avgEggsPerYear: 120, eggPricePerDozen: 250 }
+  ];
+  const GALLERY_IMAGES = [
+    { id: 'img1', src: 'https://picsum.photos/seed/happy_chicks_farm/800/600', alt: 'Pintinhos felizes na fazenda' },
+    { id: 'img2', src: 'https://picsum.photos/seed/chicken_coop_rustic/800/600', alt: 'Galinheiro rústico e charmoso' },
+    { id: 'img3', src: 'https://picsum.photos/seed/free_range_hens/800/600', alt: 'Galinhas ciscando livremente' },
+    { id: 'img4', src: 'https://picsum.photos/seed/farm_sunrise_view/800/600', alt: 'Nascer do sol na fazenda' },
+    { id: 'img5', src: 'https://picsum.photos/seed/farm_sunrise_view/800/600', alt: 'Nascer do sol na fazenda' },
+    { id: 'img6', src: 'https://picsum.photos/seed/happy_chicks_farm/800/600', alt: 'Pintinhos felizes na fazenda' },
+  ];
+  const CONTACT_EMAIL = "criatoriodipolli@gmail.com";
+  const CONTACT_PHONE = "51 4042-7016";
+  const CONTACT_ADDRESS = "Rua Eng. Agro. Macari Wladir dos Santos - Parque Eldorado - Eldorado do Sul, RS";
+  const SOCIAL_LINKS = {
+    instagram: "https://instagram.com/criatoriodipolli",
+    facebook: "https://facebook.com/criatoriodipolli",
+  };
+  const WHATSAPP_SALES_NUMBER = "555140427016";
+  const WHATSAPP_EGGS_MESSAGE_PREFIX = "Olá! Tenho interesse em adquirir";
+
+  // --- Header Scroll & Mobile Menu ---
+  const header = document.getElementById('page-header');
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
+  const desktopNavContainer = document.getElementById('desktop-nav');
+  const mobileNavLinksContainer = document.getElementById('mobile-nav-links');
+
+  // Populate Nav Links
+  NAV_LINKS.forEach(link => {
+    const aDesktop = document.createElement('a');
+    aDesktop.href = link.href;
+    aDesktop.textContent = link.label;
+    aDesktop.className = 'nav-link hover:text-amber-600 transition-colors text-white';
+    desktopNavContainer.appendChild(aDesktop);
+
+    const aMobile = document.createElement('a');
+    aMobile.href = link.href;
+    aMobile.textContent = link.label;
+    aMobile.className = 'text-stone-700 hover:text-amber-600 transition-colors text-lg';
+    aMobile.addEventListener('click', () => { // Close menu on click
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('block');
+        menuIconOpen.classList.remove('hidden');
+        menuIconClose.classList.add('hidden');
+        if (window.scrollY <= 50) { // If at top, make header transparent again
+           header.classList.remove('header-scrolled');
+        }
+    });
+    mobileNavLinksContainer.appendChild(aMobile);
+  });
+  
+  // Re-fetch nav-links elements after they are created
+  const navLinksForStyle = document.querySelectorAll('#page-header .nav-link');
+  const brandNameForStyle = document.querySelector('#page-header .brand-name');
+  const mobileMenuButtonForStyle = document.querySelector('#page-header .mobile-menu-button');
+
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('header-scrolled');
+      if(brandNameForStyle) brandNameForStyle.style.color = '#2F855A'; // green-700
+      if(mobileMenuButtonForStyle) mobileMenuButtonForStyle.style.color = '#2F855A';
+      navLinksForStyle.forEach(link => link.style.color = '#4A5568'); // stone-700 (approx)
+    } else {
+      // Only remove scrolled class if mobile menu is not open
+      if (mobileMenu.classList.contains('hidden')) {
+        header.classList.remove('header-scrolled');
+        if(brandNameForStyle) brandNameForStyle.style.color = 'white';
+        if(mobileMenuButtonForStyle) mobileMenuButtonForStyle.style.color = 'white';
+        navLinksForStyle.forEach(link => link.style.color = 'white');
+      }
+    }
+  });
+
+  mobileMenuButton.addEventListener('click', () => {
+    const isMenuOpen = mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('block', !isMenuOpen);
+    menuIconOpen.classList.toggle('hidden');
+    menuIconClose.classList.toggle('block');
+
+    // Adjust header style when mobile menu is toggled
+    if (!mobileMenu.classList.contains('hidden')) { // Menu is open
+        header.classList.add('header-scrolled'); // Force scrolled style
+        if(brandNameForStyle) brandNameForStyle.style.color = '#2F855A';
+        if(mobileMenuButtonForStyle) mobileMenuButtonForStyle.style.color = '#2F855A';
+        navLinksForStyle.forEach(link => link.style.color = '#4A5568');
+    } else { // Menu is closed
+        if (window.scrollY <= 50) { // If at top, revert to transparent
+            header.classList.remove('header-scrolled');
+            if(brandNameForStyle) brandNameForStyle.style.color = 'white';
+            if(mobileMenuButtonForStyle) mobileMenuButtonForStyle.style.color = 'white';
+            navLinksForStyle.forEach(link => link.style.color = 'white');
+        }
+    }
+  });
+
+
+  // --- Breeds Section ---
+  const breedsGrid = document.getElementById('breeds-grid');
+  BREEDS_DATA.forEach(breed => {
+    const card = document.createElement('div');
+    card.className = 'bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-1';
+    
+    let eggPriceInfo = '';
+    if (breed.eggPricePerDozen !== undefined) {
+      eggPriceInfo = `
+        <div class="mt-auto pt-4 border-t border-stone-100">
+          <p class="font-semibold text-lg text-green-600 mb-3">
+            Preço: R$ ${breed.eggPricePerDozen.toFixed(2).replace('.', ',')} / dúzia
+          </p>
+          <div class="flex items-center justify-between mb-4">
+            <label for="quantity-${breed.id}" class="text-sm font-medium text-stone-700">Quantidade (dúzias):</label>
+            <div class="flex items-center">
+              <button type="button" data-action="decrement" class="quantity-btn px-3 py-1.5 border border-stone-300 rounded-l-md text-stone-700 bg-stone-50 hover:bg-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-1 transition-colors" aria-label="Diminuir quantidade de dúzias de ovos da raça ${breed.name}">&ndash;</button>
+              <input type="number" id="quantity-${breed.id}" name="quantity-${breed.id}" value="1" min="1" class="quantity-input w-14 text-center border-t border-b border-stone-300 py-1.5 focus:outline-none focus:ring-1 focus:ring-amber-500 text-stone-800" aria-label="Quantidade de dúzias de ovos da raça ${breed.name}" />
+              <button type="button" data-action="increment" class="quantity-btn px-3 py-1.5 border border-stone-300 rounded-r-md text-stone-700 bg-stone-50 hover:bg-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-1 transition-colors" aria-label="Aumentar quantidade de dúzias de ovos da raça ${breed.name}">+</button>
+            </div>
+          </div>
+          <button data-breed-name="${breed.name}" class="buy-button w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center justify-center">
+            <i class="fab fa-whatsapp mr-2"></i>Comprar 1 Dúzia
+          </button>
+        </div>
+      `;
+    }
+
+    card.innerHTML = `
+      <img src="${breed.imageUrl}" alt="Galinha da raça ${breed.name}" class="w-full h-56 object-cover" />
+      <div class="p-6 flex flex-col flex-grow">
+        <h3 class="text-2xl font-semibold text-green-700 mb-2">${breed.name}</h3>
+        <p class="text-stone-600 text-sm mb-4 flex-grow">${breed.description}</p>
+        <div class="space-y-2 text-sm mb-4">
+          <p><strong>Origem:</strong> ${breed.origin}</p>
+          <p><strong>Temperamento:</strong> ${breed.temperament}</p>
+          ${breed.eggColor ? `<p><strong>Cor dos Ovos:</strong> ${breed.eggColor}</p>` : ''}
+          ${breed.avgEggsPerYear ? `<p><strong>Média de Ovos/Ano:</strong> ${breed.avgEggsPerYear}</p>` : ''}
+        </div>
+        ${eggPriceInfo}
+      </div>
+    `;
+    breedsGrid.appendChild(card);
+  });
+
+  // Event listeners for quantity buttons and inputs
+  breedsGrid.querySelectorAll('.quantity-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const action = button.dataset.action;
+      const input = button.parentElement.querySelector('.quantity-input');
+      const buyButton = button.closest('.mt-auto').querySelector('.buy-button');
+      let currentValue = parseInt(input.value);
+      if (action === 'increment') {
+        currentValue++;
+      } else if (action === 'decrement' && currentValue > 1) {
+        currentValue--;
+      }
+      input.value = currentValue;
+      buyButton.innerHTML = `<i class="fab fa-whatsapp mr-2"></i>Comprar ${currentValue} Dúzia${currentValue > 1 ? 's' : ''}`;
+    });
+  });
+
+  breedsGrid.querySelectorAll('.quantity-input').forEach(input => {
+    input.addEventListener('change', () => {
+      const buyButton = input.closest('.mt-auto').querySelector('.buy-button');
+      let value = parseInt(input.value);
+      if (isNaN(value) || value < 1) {
+        value = 1;
+        input.value = 1;
+      }
+      buyButton.innerHTML = `<i class="fab fa-whatsapp mr-2"></i>Comprar ${value} Dúzia${value > 1 ? 's' : ''}`;
+    });
+  });
+  
+  breedsGrid.querySelectorAll('.buy-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const breedName = button.dataset.breedName;
+      const quantityInput = button.closest('.mt-auto').querySelector('.quantity-input');
+      const quantity = parseInt(quantityInput.value);
+      const message = encodeURIComponent(`${WHATSAPP_EGGS_MESSAGE_PREFIX} ${quantity} dúzia${quantity > 1 ? 's' : ''} de ovos férteis da raça ${breedName}. Poderia me passar mais informações?`);
+      const whatsappUrl = `https://wa.me/${WHATSAPP_SALES_NUMBER}?text=${message}`;
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    });
+  });
+
+  // --- Gallery Section ---
+  const galleryGrid = document.getElementById('gallery-grid');
+  GALLERY_IMAGES.forEach((image, index) => {
+    const div = document.createElement('div');
+    div.className = `overflow-hidden rounded-lg shadow-md ${index < 2 ? 'lg:col-span-2' : ''}`;
+    div.innerHTML = `
+      <img src="${image.src}" alt="${image.alt}" class="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-110" />
+    `;
+    galleryGrid.appendChild(div);
+  });
+
+  // --- Contact Section ---
+  const contactInfoDiv = document.getElementById('contact-info');
+  contactInfoDiv.innerHTML = `
+    <p class="flex items-start">
+      <i class="fas fa-envelope fa-fw text-amber-600 mt-1 mr-3 text-xl"></i>
+      <span><strong>Email:</strong> <a href="mailto:${CONTACT_EMAIL}" class="hover:text-amber-700">${CONTACT_EMAIL}</a></span>
+    </p>
+    <p class="flex items-start">
+      <i class="fas fa-phone fa-fw text-amber-600 mt-1 mr-3 text-xl"></i>
+      <span><strong>Telefone:</strong> <a href="tel:${CONTACT_PHONE.replace(/\D/g,'')}" class="hover:text-amber-700">${CONTACT_PHONE}</a></span>
+    </p>
+    <p class="flex items-start">
+      <i class="fas fa-map-marker-alt fa-fw text-amber-600 mt-1 mr-3 text-xl"></i>
+      <span><strong>Endereço:</strong> ${CONTACT_ADDRESS}</span>
+    </p>
+  `;
+
+  const contactForm = document.getElementById('contact-form');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Obrigado pela sua mensagem! Este é um formulário de demonstração. Para contato real, por favor, utilize o email ou telefone listados.');
+    contactForm.reset();
+  });
+
+  // --- Footer ---
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+  const socialLinksFooter = document.getElementById('social-links-footer');
+  socialLinksFooter.innerHTML = `
+    <a href="${SOCIAL_LINKS.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram do ${HATCHERY_NAME}" class="text-amber-200 hover:text-amber-400 transition-colors">
+      <i class="fab fa-instagram fa-2x"></i>
+    </a>
+    <a href="${SOCIAL_LINKS.facebook}" target="_blank" rel="noopener noreferrer" aria-label="Facebook do ${HATCHERY_NAME}" class="text-amber-200 hover:text-amber-400 transition-colors">
+      <i class="fab fa-facebook-f fa-2x"></i>
+    </a>
+  `;
+});
+</script>
+
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
